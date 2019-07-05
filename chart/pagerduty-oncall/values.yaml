@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: gcr.io/travisci/pagerduty-oncall
+  repository: gcr.io/eco-emissary-99515/pagerduty-oncall
   tag: latest
   pullPolicy: Always
 
