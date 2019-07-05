@@ -1,0 +1,21 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ include "pagerduty-oncall.name" . }}
+  labels:
+    app.kubernetes.io/name: {{ include "pagerduty-oncall.name" . }}
+    helm.sh/chart: {{ include "pagerduty-oncall.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+spec:
+  schedule: "0 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: {{ .Release.name }}
+            image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+            args:
+            - /usr/local/bin/python
+            - pagerduty-oncall.py
+          restartPolicy: OnFailure

@@ -1,0 +1,11 @@
+language: generic
+script:
+  - bin/docker-build
+deploy:
+  provider: script
+  script: bin/docker-push
+  on:
+    repo: travis-ci/pagerduty-oncall
+    all_branches: true
+notifications:
+  email: false
