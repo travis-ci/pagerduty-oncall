@@ -19,3 +19,6 @@ spec:
             - /usr/local/bin/python
             - pagerduty-oncall.py
           restartPolicy: OnFailure
+          envFrom:
+            - secretRef:
+                name: {{ template "pagerduty-oncall.secret" . }}

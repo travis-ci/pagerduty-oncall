@@ -11,3 +11,5 @@ image:
 
 nameOverride: ""
 fullnameOverride: ""
+
+secretName: ""
