@@ -18,7 +18,7 @@ spec:
             args:
             - /usr/local/bin/python
             - pagerduty-oncall.py
+            envFrom:
+              - secretRef:
+                  name: {{ template "pagerduty-oncall.secret" . }}
           restartPolicy: OnFailure
-          envFrom:
-            - secretRef:
-                name: {{ template "pagerduty-oncall.secret" . }}
