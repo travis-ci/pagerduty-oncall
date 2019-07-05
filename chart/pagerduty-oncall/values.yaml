@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: travisci/pagerbot-oncall
+  repository: gcr.io/travisci/pagerduty-oncall
   tag: latest
   pullPolicy: Always
 
