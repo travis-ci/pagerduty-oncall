@@ -1,5 +1,11 @@
+---
 language: generic
+addons:
+  snaps:
+    - name: helm
+      classic: true
 script:
+  - helm lint chart/pagerduty-oncall
   - bin/docker-build
 deploy:
   provider: script
